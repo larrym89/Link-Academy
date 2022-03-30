@@ -1,0 +1,11 @@
+div {
+    margin: 10;
+    /* width: 100%; */
+    max-width: 300px;
+    border: 2px solid red;
+    border-radius: 20px;
+    /* margin: 20px 40px;  */
+    padding: 20px 30px;
+    float: left;
+    font-size: 1.5em;
+}

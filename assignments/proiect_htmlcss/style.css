@@ -1,0 +1,14 @@
+body {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #e8eae3;
+    color: #373833;
+    border: 1px solid black;
+}
+
+#main {
+    border: 1px solid black;      
+}

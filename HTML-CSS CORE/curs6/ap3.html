@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicatia 3 - curs6</title>
+</head>
+
+<body>
+
+    <h1>Formular contact</h1>
+
+    <form action="/opt/lampp/htdocs/test/form/form.php" method="POST" enctype="application/x-www-form-urlencoded" >
+
+        <label for="oras">Orasul</label>
+        <select name="oras" id="oras">
+            <option value="buc">Bucuresti</option>
+            <option value="tm">Timisoara</option>
+            <option value="cj">Cluj</option>
+        </select><br>
+
+        <label for="cursuri">Cursuri la care doriti sa va inscrieti</label>
+        <select name="cursuri" id="cursuri" multiple>
+            <option value="php">PHP</option>
+            <option value="html">HTML</option>
+            <option value="java">JAVA</option>
+            <option value="python">PYTHON</option>
+        </select><br>
+
+        <label for="mesaj">Mesaj</label>
+        <textarea name="mesaj" id="mesaj" cols="30" rows="10"></textarea><br>
+
+        <label for="cv">CV</label>
+        <input type="file" name="cv" id="cv">
+
+        <fieldset class="form-group">
+            <legend>Program Cursuri</legend>
+            <input type="radio" name="timp" id="timp" value="dimi"> dimineata
+            <input type="radio" name="timp" id="timp" value="pranz"> la pranz
+            <input type="radio" name="timp" id="timp" value="seara"> seara
+        </fieldset><br>
+
+        <input type="checkbox" name="termeni" id="termeni" checked>Termeni si conditii
+        <input type="checkbox" name="news" id="news">Va abonati la newsletter
+        <br>
+
+        <input type="submit" value="Trimite datele">
+
+    </form>
+
+
+
+</body>
+
+</html>

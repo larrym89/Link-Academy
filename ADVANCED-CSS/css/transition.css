@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    gap: 2rem;
+}
+
+.container .card {
+    display: flex;
+    flex-direction: column;
+    width: 28%;
+    overflow: hidden;
+    box-shadow: 0 0.1rem 1rem gray;
+    border-radius: 1em;
+    background: #ece9e6;
+    background: linear-gradient(to right, #fff, #ece9e6);
+}
+
+div.card {
+    transform: perspective(900px) rotateX(60deg) scale(0.7);
+    box-shadow: 0px 20px 100px #555;
+    transition: 0.5s ease all;
+}
+
+div.container {
+    padding: 1em;
+    box-shadow: 0px 20px 100px #555;
+    transition: 0.5s ease all;
+    border-radius: 1em;
+    
+}
+
+div.card:hover {
+    transform: rotate(0deg) scale(1) ;
+}

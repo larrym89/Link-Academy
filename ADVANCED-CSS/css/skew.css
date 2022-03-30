@@ -1,0 +1,17 @@
+.skeww {
+    width: 200px;
+    height: 200px;
+    background-color: orangered;
+    margin: 10px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 18px;
+    text-align: center;
+    color: white;
+    transform: skewX(-10deg);
+    transform: skewY(10deg);
+    padding: 10px;
+    font-size: 20px;
+    font-family: sans-serif;
+    align-items:
+}

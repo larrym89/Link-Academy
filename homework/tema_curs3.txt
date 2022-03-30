@@ -1,0 +1,82 @@
+------------------------------------------
+************ PROBLEMA ROBOT **************
+------------------------------------------
+
+
+// Cream o functie pentru a mari numarul de pasi cu o valoare dorita
+this.makeSteps = function(steps) {
+	var steps
+	for (var i = 0; i < steps; i++) {
+		this.move()
+	}
+}
+
+// Cream o functie pentru a intoarce robotul catre dreapta
+this.turnRight = function() {
+	for (var i = 0; i < 3; i++) {
+		this.turnLeft()
+	}
+}
+
+/* Cream o functie pentru a verifica daca 'romburile' contin 'beepers'
+   Daca 'rombul' contine 'beeper' -> avansam un pas 
+   Daca 'rombul' nu contine 'beeper' -> plasam un 'beeper' si avansam un pas */
+this.checkBeepers = function(number) {
+	var number
+	for (var i = 0; i < number; i++) {
+		if (this.beepersPresent() == true) {
+			this.move()
+		} else {
+			this.putBeeper()
+			this.move()
+		}
+	}
+}
+
+// Cream o noua functie cu acest ciclu
+this.startCycle = function() {
+	this.turnLeft()
+	this.checkBeepers(4)
+	this.turnRight()
+	this.makeSteps(4)
+	this.turnRight()
+	this.checkBeepers(4)
+	this.turnLeft()
+}
+
+// ********** START PROGRAM *********
+this.startCycle()
+this.makeSteps(4)
+this.startCycle()
+
+
+------------------------------------------
+************ PROBLEMA CU # SI 0 **********
+------------------------------------------
+
+// Afisam un prompt pentru introducerea variabilelor
+var w = parseInt(prompt('Width: '))
+var h = parseInt(prompt('Height: '))
+
+// Afisam prima linie de '#'
+for (i = 0; i < w+2; i++) {
+    document.write('#')
+}
+document.write('<br>')
+
+// Afisam '0' insotite de '#' la inceputul si sfarsitul sirului
+// Atat pe orizontala cat si pe verticala
+for (i = 0; i < h; i++) {
+    document.write('#')
+    for (j = 0; j < w; j++) {
+        document.write(0)
+    }
+    document.write('#')
+    document.write('<br>')
+}
+
+// Afisam si ultima linie cu '#'
+for (i = 0; i < w + 2; i++) {
+    document.write('#')
+}
+
