@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST - Bitcoin</title>
+</head>
+
+<body>
+
+    <h1>1 Bitcoin</h1>
+    <div id="data"></div>
+    <div id="bit"></div>
+
+    <script>
+         // folosim un proxi  https://cors-anywhere.herokuapp.com/corsdemo
+         // Pentru a folosi proxy , punem linkul proxy in fata URL
+         // ex: https://cors-anywhere.herokuapp.com/https://api.coindesk.com/v1/bpi/currentprice.json
+        // https://cors-anywhere.herokuapp.com
+
+        // ****Pasul 1**** - imi definesc obiectul si url de unde vreau datele
+        var xmlhttp = new XMLHttpRequest()
+        var url = "https://api.coindesk.com/v1/bpi/currentprice.json"
+        //**** End Pasul 1****
+
+        // ****Pasul 4 - Detectez daca primesc raspuns si mma folosesc de date****
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var myArr = JSON.parse(this.responseText)
+                myFunction(myArr) // Ma folosesc de date (creez functia myFunction separat cu parametrul - myArr(JSON - parsat))
+            }
+        }
+        // ****  End Pasul 4****
+
+        // ****Pasul 2 - imi deschid conexiunea****
+        xmlhttp.open("GET", url, true)
+        // **** End Pasul 2****
+
+        // ****Pasul 3 - Imi trimit cererea****
+        xmlhttp.send()
+        // Daca nu trimit nimic in send - este cerere de tip GET
+        // Daca fac o cerere de tip post , trebuie sa dau parametrii in .send()
+        // ****End Pasul 2****
+
+
+        // ****Pasul 5 - imi ia datele din myArr si le afiseaza****
+        function myFunction(data) {
+            var out = ""
+            var i;
+            // console.log(data)
+            console.log(data.bpi)
+            document.getElementById("data").innerHTML = data.time.updated;
+            out += `
+            <ul>
+                <li>${data.bpi.EUR.symbol}EUR: ${data.bpi.EUR.rate}</li>
+                <li>${data.bpi.GBP.symbol}GBP: ${data.bpi.GBP.rate}</li>
+                <li>${data.bpi.USD.symbol}USD: ${data.bpi.USD.rate}</li>
+            </ul>
+            `
+            document.getElementById("bit").innerHTML = out
+        }
+        // **** End Pasul 5****
+
+
+    </script>
+</body>
+
+</html>
