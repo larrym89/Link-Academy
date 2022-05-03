@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2 - Website Building</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        #login-container {
+            width: 460px;
+            margin: 0 auto;
+        }
+
+        form label,
+        form input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        form input {
+            padding: 8px;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form div {
+            margin: 16px 0px;
+            position: relative;
+        }
+
+        i {
+            position: absolute;
+            right: 5px;
+            margin-top: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .valid {
+            border: 2px solid lightgreen;
+        }
+
+        .green {
+            color: lightgreen;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .not-valid {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="login-container">
+
+        <form id="myForm">
+            <div>
+                <label for="username">Username:</label>
+                <input id="username" class="input-field" type="text">
+                <i id="inputCheck" class="material-icons hidden green">check</i>
+                <i id="inputClose" class="material-icons hidden red">close</i>
+
+            </div>
+
+            <div>
+                <label for="password">Password:</label>
+                <input id="password" type="password">
+                <i id="passwordCheck" class="material-icons hidden green">check</i>
+                <i id="passwordClose" class="material-icons hidden red">close</i>
+            </div>
+
+            <input type="submit" value="Login" id="submitBtn">
+            <div id="message"></div>
+        </form>
+    </div>
+
+    <script>
+
+        const myForm = document.getElementById("myForm")
+        const username = document.getElementById("username")
+        const password = document.getElementById("password")
+        const message = document.getElementById("message")
+
+
+        myForm.addEventListener("submit", function (e) {
+
+            e.preventDefault()
+            checkValues()
+                       
+        })
+
+        function checkValues() {
+            
+            const usernameValue = username.value.trim()
+            const passwordValue = password.value.trim()
+            let inputCheck = document.getElementById("inputCheck")
+            let inputClose = document.getElementById("inputClose")
+            let passwordCheck = document.getElementById("passwordCheck")
+            let passwordClose = document.getElementById("passwordClose")
+
+            let div1 = document.createElement("div")
+            let div2 = document.createElement("div")
+            
+            if (usernameValue.length == 0) {
+                username.classList.add("not-valid")
+                inputClose.classList.remove("hidden")
+                div1.innerHTML = `<p>*please enter a username</p>`
+                message.append(div1)
+            } else if (usernameValue !== "new_user") {
+                username.classList.add("not-valid")
+                inputClose.classList.remove("hidden")
+                div1.innerHTML = `<p>*please enter a valid username</p>`
+                message.append(div1)
+            } else {
+                username.classList.add("valid")
+                inputCheck.classList.remove("hidden")
+            }
+
+
+            if (passwordValue.length == 0) {
+                password.classList.add("not-valid")
+                passwordClose.classList.remove("hidden")
+                div2.innerHTML = `<p>*please enter a password</p>`
+                message.append(div2)
+            } else if (passwordValue !== "123456789") {
+                password.classList.add("not-valid")
+                passwordClose.classList.remove("hidden")
+                div2.innerHTML = `<p>*please enter a valid password</p>`
+                message.append(div2)
+            } else {
+                password.classList.add("valid") 
+                passwordCheck.classList.remove("hidden")
+            }
+
+            if (passwordValue == "123456789" && usernameValue == "new_user") {
+                message.innerHTML = "Login Successful"
+            }
+        }
+
+        
+
+
+    </script>
+
+</body>
+
+</html>
